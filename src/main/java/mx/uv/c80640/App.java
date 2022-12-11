@@ -31,7 +31,7 @@ public class App
         before((req, res) -> res.header("Access-Control-Allow-Origin", "*"));
         before((req, res) -> res.type("application/Json"));
 
-        get("/", (req, res)-> gson.toJson(DAO.listaMonumentos()));
+        post("/", (req, res)-> gson.toJson(DAO.listaMonumentos()));
         // post("/", (req, res) -> {
 
              // String datosMonumento = req.body();
