@@ -29,7 +29,7 @@ public class DAO {
             stm = (Statement) conn.createStatement();
             rs = stm.executeQuery(sql);
             while (rs.next()) {
-                Monumento u = new Monumento(rs.getInt("id"), rs.getString("paisMonumento"), rs.getString("nombreMonumento"),rs.getString("anioContruccion"),rs.getString("anioIgnaguracion"),rs.getInt("altura"),rs.getInt("largo"),rs.getString("materiales"));
+                Monumento u = new Monumento(rs.getInt("id"), rs.getString("paisMonumento"), rs.getString("nombreMonumento"),rs.getString("anioConstruccion"),rs.getString("anioInaguracion"),rs.getInt("altura"),rs.getInt("largo"),rs.getString("materiales"));
                 resultado.add(u);
             }
         } catch (Exception e) {
