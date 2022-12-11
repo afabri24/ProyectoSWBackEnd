@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>mx.uv.c80640</groupId>
-  <artifactId>backEndProyecto</artifactId>
+  <artifactId>ProyectoSWBackEnd</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>backEndProyecto</name>
+  <name>ProyectoSWBackEnd</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
