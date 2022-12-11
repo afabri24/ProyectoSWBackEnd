@@ -16,21 +16,19 @@ public class App
     public static void main( String[] args )
     {
         port(getHerokuAssignedPort());
-        System.out.println( "Hello World!" );
+        //System.out.println( "Hello World!" );
         options("/*", (request, response) -> {
             String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
-            System.out.println(accessControlRequestHeaders);
             if (accessControlRequestHeaders != null) {
                 response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
             }
             String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
-            System.out.println(accessControlRequestMethod);
             if (accessControlRequestMethod != null) {
                 response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
             }
             return "OK";
         });
-        before((req, res)-> res.header("Access-Control-Allow-Origin", "*"));
+        before((req, res) -> res.header("Access-Control-Allow-Origin", "*"));
         before((req, res) -> res.type("application/Json"));
 
         get("/", (req, res)-> gson.toJson(DAO.listaMonumentos()));
@@ -54,7 +52,7 @@ public class App
         if (processBuilder.environment().get("PORT") != null) {
             return Integer.parseInt(processBuilder.environment().get("PORT"));
         }
-        return 4567; // return default port if heroku-port isn't set (i.e. on localhost)
+        return 80;
     }
     
 }
