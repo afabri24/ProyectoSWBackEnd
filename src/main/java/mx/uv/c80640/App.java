@@ -31,18 +31,22 @@ public class App
             return "OK";
         });
         before((req, res)-> res.header("Access-Control-Allow-Origin", "*"));
-        post("/", (req, res) -> {
-            String datosMonumento = req.body();
-            // String id = UUID.randomUUID().toString();
-            Monumento u = gson.fromJson(datosMonumento, Monumento.class);
-            // u.setId(id);
+        before((req, res) -> res.type("application/Json"));
+
+        get("/monumentos", (req, res)-> gson.toJson(DAO.listaMonumentos()));
+        // post("/", (req, res) -> {
+
+             // String datosMonumento = req.body();
+             // String id = UUID.randomUUID().toString();
+             // Monumento u = gson.fromJson(datosMonumento, Monumento.class);
+             // u.setId(id);
 
             // devolver una respuesta JSON
-            JsonObject objetoJson = new JsonObject();
-            // objetoJson.addProperty("status", DAO.crearUsuario(u));
+             // JsonObject objetoJson = new JsonObject();
+           // objetoJson.addProperty("status", DAO.crearUsuario(u));
             // objetoJson.addProperty("id", id);
-            return objetoJson;
-        });
+        //     return objetoJson;
+        // });
 
     }
     static int getHerokuAssignedPort() {
