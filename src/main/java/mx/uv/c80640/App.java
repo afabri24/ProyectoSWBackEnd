@@ -32,7 +32,25 @@ public class App
         });
         before((req, res)-> res.header("Access-Control-Allow-Origin", "*"));
 
-        get("/", (req, res)-> gson.toJson(DAO.listaMonumentos()));
+        get("/basedatos", (req, res)-> gson.toJson(DAO.listaMonumentos()));
+        post("/datos", (req, res) -> {
+            String datosMonumento = req.body();
+            Monumento m = gson.fromJson(datosMonumento, Monumento.class);
+
+            // devolver una respuesta JSON
+            JsonObject objetoJson = new JsonObject();
+
+            List<Monumento> x = DAO.listaMonumentos();
+            for (Monumento xMonumento : DAO.listaMonumentos()) {
+                if (xMonumento.getId()==m.getId()) {
+                    objetoJson.addProperty("status", true);
+                    objetoJson.addProperty("monumento", gson.toJson(xMonumento));
+                    return objetoJson;
+                }
+            }
+            objetoJson.addProperty("status", false);
+            return objetoJson;
+        });
         // post("/", (req, res) -> {
 
              // String datosMonumento = req.body();
