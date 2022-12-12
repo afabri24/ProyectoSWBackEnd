@@ -22,7 +22,7 @@ public class DAO {
         Connection conn = null;
         List<Monumento> resultado = new ArrayList<>();
 
-        conn = c.getConnection();
+        conn = Conexion.getConnection();
 
         try {
             String sql = "SELECT * from monumentos";
