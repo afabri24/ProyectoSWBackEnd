@@ -35,10 +35,8 @@ public class App
         post("/datos", (req, res) -> {
             String datosMonumento = req.body();
             Monumento m = gson.fromJson(datosMonumento, Monumento.class);
-
             // devolver una respuesta JSON
             JsonObject objetoJson = new JsonObject();
-
             List<Monumento> x = DAO.listaMonumentos();
             for (Monumento xMonumento : DAO.listaMonumentos()) {
                 if (xMonumento.getId()==m.getId()) {
