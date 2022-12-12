@@ -70,7 +70,7 @@ public class App
              // u.setId(id);
 
             // devolver una respuesta JSON
-             // JsonObject objetoJson = new JsonObject();
+             // JsonObject objetoJson = new JsonObject();//das
            // objetoJson.addProperty("status", DAO.crearUsuario(u));
             // objetoJson.addProperty("id", id);
         //     return objetoJson;
