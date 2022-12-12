@@ -30,7 +30,7 @@ public class App
         });
         before((req, res) -> res.header("Access-Control-Allow-Origin", "*"));
         before((req, res) -> res.type("application/Json"));
-        
+
         // options("/*", (request, response) -> {
         //     String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
         //     if (accessControlRequestHeaders != null) {
@@ -38,7 +38,7 @@ public class App
         //     }
         //     String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
         //     if (accessControlRequestMethod != null) {
-        //         response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
+        //         response.header("Access-Control-Allow-Methods", accessControlRequestMethod);//nose
         //     }
         //     return "OK";
         // });
